@@ -9,7 +9,8 @@ export default function Detail2(props) {
       <button
         onClick={() => {
           props.onIncrease();
-          setAppState({number:19});
+          let obj={...appState,number:appState.number + 1};
+          setAppState(obj);
         }}
       >
         inc

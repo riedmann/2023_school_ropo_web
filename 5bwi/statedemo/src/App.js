@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useCallback, useMemo, useState } from "react";
 import "./App.css";
 import DetailWrapper from "./components/DetailWrapper";
 
