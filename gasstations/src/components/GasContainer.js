@@ -45,7 +45,7 @@ export default function GasContainer() {
       </div>
       <div className={styles.container}>
         <div className={styles.box}>
-          <GasList stations={stations} />
+          <GasMap stations={stations} />
         </div>
         <div className={styles.box}>
           <GasList stations={stations} />

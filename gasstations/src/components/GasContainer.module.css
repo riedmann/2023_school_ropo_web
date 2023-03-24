@@ -3,6 +3,7 @@
 }
 
 .box{
-    
-    height:60vh;
+    flex:1;
+    background-color: green;
+    margin-right: 5px;
 }
