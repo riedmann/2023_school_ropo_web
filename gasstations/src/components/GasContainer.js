@@ -12,12 +12,12 @@ const urlSup =
 
 export default function GasContainer() {
   const [stations, setStations] = React.useState([]);
-  const [station,  setStation] = React.useState(null);
+  const [station, setStation] = React.useState(null);
   const [showDiesel, setShowDiesel] = React.useState(true);
 
   useEffect(() => {
     let url = urlDie;
-    if (!showDiesel){
+    if (!showDiesel) {
       url = urlSup;
     }
     fetch(url)
@@ -31,16 +31,13 @@ export default function GasContainer() {
       });
   }, [showDiesel]);
 
-  
-  
-
   return (
-    <div>
+    <div className={styles.main}>
       <h1>Gasstations</h1>
-      <h1>hello</h1>
-      <button onClick={() => setShowDiesel(!showDiesel)}>Change</button>
+      <p>the best prices in town</p>
+
       <div className={styles.container}>
-        <h2>Diesel/Benzin</h2>
+        <button onClick={() => setShowDiesel(!showDiesel)}>{showDiesel?"Show Gas":"Show Diesel"}</button>
         <h2>Suche</h2>
       </div>
       <div className={styles.container}>
@@ -51,7 +48,6 @@ export default function GasContainer() {
           <GasList stations={stations} />
         </div>
       </div>
-      
     </div>
   );
 }
