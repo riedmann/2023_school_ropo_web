@@ -1,0 +1,46 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+#blob {
+  background-color: white;
+  position: absolute;
+  height: 200px;
+  aspect-ratio: 1;
+  left: 50%;
+  right: 50%;
+  translate: -50% -50%;
+  border-radius: 50%;
+  background: linear-gradient(to right, aquamarine, mediumpurple);
+  animation: rotate 20s infinite;
+  z-index: -3;
+}
+
+#blur {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: -2;
+  backdrop-filter: blur(100px);
+}
+
+@keyframes rotate {
+  from {
+    rotate: 0deg;
+  }
+  50% {
+    scale: 1 1.5;
+  }
+  to {
+    rotate: 360deg;
+  }
+}
+
+.body {
+  background-color: black;
+  color: white;
+  margin: 0px;
+}
+.wrapper {
+  padding: 50px;
+}

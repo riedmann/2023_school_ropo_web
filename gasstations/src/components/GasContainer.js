@@ -10,10 +10,22 @@ const urlDie =
 const urlSup =
   "https://api.e-control.at/sprit/1.0/search/gas-stations/by-region?code=8&type=BL&fuelType=SUP&includeClosed=true";
 
+const allRegions =
+  "https://api.e-control.at/sprit/1.0/regions?includeCities=true";
+
 export default function GasContainer() {
   const [stations, setStations] = React.useState([]);
-  const [station, setStation] = React.useState(null);
+  const [regions, setRegions] = React.useState([]);
   const [showDiesel, setShowDiesel] = React.useState(true);
+
+  useEffect(() => {
+    fetch(allRegions)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setRegions(data);
+      });
+  }, []);
 
   useEffect(() => {
     let url = urlDie;
@@ -23,11 +35,9 @@ export default function GasContainer() {
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+     
         setStations(data);
-        if (data.length > 0) {
-          setStation(data[0]);
-        }
+       
       });
   }, [showDiesel]);
 
@@ -37,7 +47,9 @@ export default function GasContainer() {
       <p>the best prices in town</p>
 
       <div className={styles.container}>
-        <button onClick={() => setShowDiesel(!showDiesel)}>{showDiesel?"Show Gas":"Show Diesel"}</button>
+        <button onClick={() => setShowDiesel(!showDiesel)}>
+          {showDiesel ? "Show Gas" : "Show Diesel"}
+        </button>
         <h2>Suche</h2>
       </div>
       <div className={styles.container}>
